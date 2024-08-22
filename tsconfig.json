@@ -9,11 +9,13 @@
     "./**/jest.config.ts",
     "./ci/**/*.ts",
     "./resources/notarize.ts",
-    "./package.json"
+    "./package.json",
+    "./cypress/**/*.ts"
   ],
   "compilerOptions": {
     "jsx": "react-jsx",
     "module": "commonjs",
+    "types": ["cypress"],
     "noEmit": true
   }
 }
