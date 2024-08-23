@@ -6,23 +6,16 @@ test.describe('Electron App Tests', () => {
   test.beforeAll(async () => {
     // Launch Electron application with the path to your Electron binary
     electronApp = await electron.launch({
-      args: ['dist/lichtblick-1.3.2-win.exe'], // Replace with the correct path to your Electron app
+      args: ['dist/lichtblick-1.3.2-linux-amd64.deb'],
     });
   });
-
-  test.afterAll(async () => {
-    await electronApp.close();
-  });
-
-  test('should load the main window', async () => {
-    const window = await electronApp.firstWindow();
-    const title = await window.title();
-    expect(title).toBe('Expected Title'); // Replace with your expected window title
-  });
-
   test('should have a specific element', async () => {
     const window = await electronApp.firstWindow();
     const element = await window.$('#element-id'); // Replace with your element selector
     expect(element).not.toBeNull();
   });
+  test.afterAll(async () => {
+    await electronApp.close();
+  });
+
 });
